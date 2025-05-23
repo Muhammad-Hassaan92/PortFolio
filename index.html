@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Hassaan | AI Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #3b82f6, #10b981);
+        }
+        
+        .dark .gradient-text {
+            background-image: linear-gradient(90deg, #60a5fa, #34d399);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05);
+        }
+        
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+        }
+        
+        .dark .section-divider {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+        
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: scale(1.05);
+        }
+        
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dark .nav-link::after {
+            background-color: #60a5fa;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Muhammad Hassaan</a>
+                
+                <div class="flex items-center space-x-6">
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#home" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </nav>
+                    
+                    <div class="flex items-center space-x-4">
+                        <button id="theme-toggle" class="theme-toggle p-2 rounded-full bg-gray-100 dark:bg-gray-800">
+                            <i data-feather="moon" class="hidden dark:block"></i>
+                            <i data-feather="sun" class="dark:hidden"></i>
+                        </button>
+                        
+                        <div class="px-3 py-1 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-full text-sm font-medium animate-pulse">
+                            Open to Work
+                        </div>
+                        
+                        <button id="mobile-menu-button" class="md:hidden">
+                            <i data-feather="menu"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 px-6 py-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate__animated animate__fadeInLeft">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                        Hi, I'm <span class="gradient-text">Muhammad Hassaan</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-600 dark:text-gray-300">
+                        AI Engineer | Generative AI Specialist
+                    </h2>
+                    <p class="text-lg mb-8 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        I transform complex ideas into real-world AI-powered applications. With expertise in Python, Machine Learning, and Generative AI, I build scalable, intelligent systems that make a tangible impact.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-800 dark:text-blue-200 text-sm font-medium">
+                            Open to Work
+                        </div>
+                        <div class="px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full text-green-800 dark:text-green-200 text-sm font-medium">
+                            Available Immediately
+                        </div>
+                        <div class="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-800 dark:text-purple-200 text-sm font-medium">
+                            On-site | Hybrid | Remote
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300">
+                            Contact Me
+                        </a>
+                        <a href="#projects" class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 flex justify-center animate__animated animate__fadeInRight">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full blur-xl opacity-30 animate-pulse"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full animate-float"></div>
+                        <div class="relative w-full h-full flex items-center justify-center">
+                            <img src="image.jpeg" alt="Muhammad Hassaan" class="w-5/6 h-5/6 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                    AI Engineer with a passion for building intelligent systems that solve real-world problems.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate__animated animate__fadeInLeft">
+                    <h3 class="text-2xl font-semibold mb-6">What I Do</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        I specialize in designing, training, and deploying robust AI models with a focus on Generative AI and Large Language Models. My expertise spans the entire AI development lifecycle from concept to production.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                                    <i data-feather="check" class="w-4 h-4 text-blue-500 dark:text-blue-400"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    <span class="font-medium">Generative AI Development:</span> Building advanced chatbots and AI assistants with emotion recognition and RAG capabilities
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                                    <i data-feather="check" class="w-4 h-4 text-blue-500 dark:text-blue-400"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    <span class="font-medium">Model Optimization:</span> Enhancing performance and efficiency of AI models for production environments
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                                    <i data-feather="check" class="w-4 h-4 text-blue-500 dark:text-blue-400"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    <span class="font-medium">End-to-End Solutions:</span> Developing complete AI applications from data preprocessing to deployment
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate__animated animate__fadeInRight">
+                    <h3 class="text-2xl font-semibold mb-6">Work Preferences</h3>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6">
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Location Types</h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm">On-site</span>
+                                    <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-sm">Hybrid</span>
+                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded-full text-sm">Remote</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">On-site Locations</h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm">Islamabad</span>
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm">Rawalpindi</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Remote Regions</h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm">Pakistan</span>
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm">United States</span>
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm">United Kingdom</span>
+                                    <span class="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm">European Union</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Employment Types</h4>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">Part-time</span>
+                                    <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">Contract</span>
+                                    <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-200 rounded-full text-sm">Internship</span>
+                                    <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 rounded-full text-sm">Temporary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                    My technical toolkit spans across various domains of artificial intelligence and software development.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                            <i data-feather="code" class="text-blue-500 dark:text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Languages</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Python</span>
+                    </div>
+                </div>
+                
+                <!-- ML/DL Frameworks -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
+                            <i data-feather="cpu" class="text-purple-500 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">ML/DL Frameworks</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">TensorFlow</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">PyTorch</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Keras</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Scikit-learn</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Hugging Face</span>
+                    </div>
+                </div>
+                
+                <!-- Generative AI -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-4">
+                            <i data-feather="message-square" class="text-green-500 dark:text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Generative AI</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">LLMs</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">RAG</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Chatbots</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Transformers</span>
+                    </div>
+                </div>
+                
+                <!-- NLP -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mr-4">
+                            <i data-feather="type" class="text-yellow-500 dark:text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">NLP</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Text Processing</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Sentiment Analysis</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Text Summarization</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Translation</span>
+                    </div>
+                </div>
+                
+                <!-- Computer Vision -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mr-4">
+                            <i data-feather="eye" class="text-red-500 dark:text-red-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Computer Vision</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">OpenCV</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Image Classification</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Object Detection</span>
+                    </div>
+                </div>
+                
+                <!-- Deployment & Tools -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mr-4">
+                            <i data-feather="cloud" class="text-indigo-500 dark:text-indigo-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Deployment & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">FastAPI</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Streamlit</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Gradio</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">GitHub</span>
+                        <span class="skill-pill px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                    Explore my AI-powered applications that solve real-world problems.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- MedXpert -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-teal-400 flex items-center justify-center">
+                        <i data-feather="activity" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">MedXpert</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Advanced medical chatbot with Retrieval Augmented Generation (RAG) capabilities for accurate health information.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs">Generative AI</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-xs">LLM</span>
+                            <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded-full text-xs">RAG</span>
+                        </div>
+                        <a href="https://huggingface.co/spaces/Muhammad-Hassaan/MedXpert" target="_blank" class="text-blue-500 dark:text-blue-400 font-medium inline-flex items-center">
+                            View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Voice Assisted Chatbot -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center">
+                        <i data-feather="mic" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Voice Assisted Chatbot</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            AI chatbot with voice interaction and emotion recognition using Retrieval Augmented Generation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs">Generative AI</span>
+                            <span class="px-2 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-200 rounded-full text-xs">Emotion Recognition</span>
+                            <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded-full text-xs">RAG</span>
+                        </div>
+                        <a href="https://huggingface.co/spaces/Muhammad-Hassaan/Voice-Assisted-Chatbot" target="_blank" class="text-blue-500 dark:text-blue-400 font-medium inline-flex items-center">
+                            View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Global Text Translator -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center">
+                        <i data-feather="globe" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Global Text Translator</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            AI-powered multilingual text translation application supporting multiple languages.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs">NLP</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-xs">Translation</span>
+                            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 rounded-full text-xs">Transformers</span>
+                        </div>
+                        <a href="https://huggingface.co/spaces/Muhammad-Hassaan/Global-Text-Translator" target="_blank" class="text-blue-500 dark:text-blue-400 font-medium inline-flex items-center">
+                            View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- LinguaFix -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-teal-400 flex items-center justify-center">
+                        <i data-feather="edit-3" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">LinguaFix</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Advanced grammar correction and text enhancement tool powered by AI.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs">NLP</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-xs">Grammar Correction</span>
+                            <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded-full text-xs">Text Processing</span>
+                        </div>
+                        <a href="https://huggingface.co/spaces/Muhammad-Hassaan/LinguaFix" target="_blank" class="text-blue-500 dark:text-blue-400 font-medium inline-flex items-center">
+                            View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- The Web Scraper -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-r from-red-400 to-pink-400 flex items-center justify-center">
+                        <i data-feather="download" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">The Web Scraper</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            AI-enhanced web scraping tool that extracts and processes data efficiently.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs">Web Scraping</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-xs">Data Extraction</span>
+                            <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded-full text-xs">Automation</span>
+                        </div>
+                        <a href="https://huggingface.co/spaces/Muhammad-Hassaan/The-Web-Scraper" target="_blank" class="text-blue-500 dark:text-blue-400 font-medium inline-flex items-center">
+                            View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- SnapShoe -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-r from-indigo-400 to-purple-400 flex items-center justify-center">
+                        <i data-feather="image" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">SnapShoe</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Computer vision application that identifies shoe types from images using deep learning.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs">Computer Vision</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-xs">Image Classification</span>
+                            <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 rounded-full text-xs">Deep Learning</span>
+                        </div>
+                        <a href="https://huggingface.co/spaces/Muhammad-Hassaan/SnapShoe" target="_blank" class="text-blue-500 dark:text-blue-400 font-medium inline-flex items-center">
+                            View Project <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://huggingface.co/Muhammad-Hassaan" target="_blank" class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 inline-flex items-center">
+                    View All Projects on Hugging Face <i data-feather="external-link" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                    My journey in AI engineering and professional development.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Intern Experience -->
+                <div class="relative pl-8 pb-8 border-l-2 border-blue-200 dark:border-blue-800 group">
+                    <div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-blue-500 dark:bg-blue-400 border-4 border-white dark:border-gray-900"></div>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 mb-4 card-hover transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-semibold">AI Engineering Intern</h3>
+                            <div class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium mt-2 md:mt-0">
+                                Building and Deploying AI Applications
+                            </div>
+                        </div>
+                        <div class="flex items-center text-gray-500 dark:text-gray-400 mb-4">
+                            <i data-feather="map-pin" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">Islamabad, Pakistan</span>
+                            <span class="mx-2">•</span>
+                            <i data-feather="calendar" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm">2023 - Present</span>
+                        </div>
+                        <div class="text-gray-600 dark:text-gray-300">
+                            <p class="mb-4">Specialized in developing and deploying AI applications with a focus on Generative AI and Large Language Models.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check-circle" class="w-4 h-4 text-green-500 dark:text-green-400 mt-1 mr-2"></i>
+                                    <span>Developed customized chatbots with Retrieval Augmented Generation (RAG) capabilities</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check-circle" class="w-4 h-4 text-green-500 dark:text-green-400 mt-1 mr-2"></i>
+                                    <span>Implemented emotion detection in AI assistants for enhanced user interaction</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check-circle" class="w-4 h-4 text-green-500 dark:text-green-400 mt-1 mr-2"></i>
+                                    <span>Worked with state-of-the-art LLMs to build specialized AI solutions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check-circle" class="w-4 h-4 text-green-500 dark:text-green-400 mt-1 mr-2"></i>
+                                    <span>Deployed AI models using FastAPI, Streamlit, and Gradio for production use</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="max-w-3xl mx-auto mt-12">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Certifications</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                                <i data-feather="award" class="text-blue-500 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">AI Engineering</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">IBM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-4">
+                                <i data-feather="award" class="text-green-500 dark:text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Python 3 Specialization</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">University of Michigan</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
+                                <i data-feather="award" class="text-purple-500 dark:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Machine Learning Specialization</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">IBM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 card-hover transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mr-4">
+                                <i data-feather="award" class="text-yellow-500 dark:text-yellow-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">ChatGPT Prompt Engineering</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">DeepLearning.AI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                    I'm currently open to new opportunities. Feel free to reach out!
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <div class="animate__animated animate__fadeInLeft">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                                    <i data-feather="mail" class="text-blue-500 dark:text-blue-400"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Email</h4>
+                                <a href="mailto:mhassaan.786.909@gmail.com" class="text-blue-500 dark:text-blue-400">mhassaan.786.909@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                                    <i data-feather="linkedin" class="text-green-500 dark:text-green-400"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/muhammad-hassaan-ai-engineer" target="_blank" class="text-blue-500 dark:text-blue-400">linkedin.com/in/muhammad-hassaan-ai-engineer</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                                    <i data-feather="github" class="text-purple-500 dark:text-purple-400"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">GitHub</h4>
+                                <a href="https://github.com/Muhammad-Hassaan" target="_blank" class="text-blue-500 dark:text-blue-400">github.com/Muhammad-Hassaan</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center">
+                                    <i data-feather="map-pin" class="text-yellow-500 dark:text-yellow-400"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-700 dark:text-gray-300">Location</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Islamabad, Pakistan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate__animated animate__fadeInRight">
+                    <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-all duration-300"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-600 dark:text-gray-400">© 2023 Muhammad Hassaan. All rights reserved.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="mailto:mhassaan.786.909@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300">
+                        <i data-feather="mail"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammad-hassaan-ai-engineer" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Muhammad-Hassaan" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="https://huggingface.co/Muhammad-Hassaan" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors duration-300">
+                        <i data-feather="cpu"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                feather.replace();
+            } else {
+                icon.setAttribute('data-feather', 'x');
+                feather.replace();
+            }
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or use system preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            
+            const theme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            
+            feather.replace();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        icon.setAttribute('data-feather', 'menu');
+                        feather.replace();
+                    }
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just log it and show an alert
+            console.log({name, email, subject, message});
+            
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    const animationClass = element.classList[1]; // Get the animation class
+                    element.classList.add(animationClass);
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
