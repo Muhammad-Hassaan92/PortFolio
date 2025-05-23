@@ -1,95 +1,72 @@
-# PortFolio
+# Muhammad Hassaan – AI Engineer Portfolio
 
-A personal portfolio website showcasing Muhammad Hassaan’s skills, projects, and experience. Built with modern web technologies to provide a clean, responsive, and user-friendly interface.
+Welcome to my personal portfolio repository, showcasing my expertise in Artificial Intelligence, Generative AI, and Machine Learning. This platform highlights my projects, skills, and professional journey in the AI domain.
 
----
+## 🌐 Live Portfolio
 
-## Table of Contents
+Explore the live version of my portfolio:  
+🔗 [muhammad-hassaan92.github.io/PortFolio](https://muhammad-hassaan92.github.io/PortFolio/)
 
-* [About](#about)
-* [Features](#features)
-* [Technologies Used](#technologies-used)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
+## 📌 Overview
 
----
+This portfolio is designed to present my work in AI engineering, focusing on:
 
-## About
+- **Generative AI**: Developing advanced chatbots and AI assistants with emotion recognition and Retrieval Augmented Generation (RAG) capabilities.
+- **Machine Learning & Deep Learning**: Building and optimizing models for various applications.
+- **Natural Language Processing (NLP)**: Implementing solutions for text processing, sentiment analysis, and translation.
+- **Computer Vision**: Creating applications for image classification and object detection.
 
-This project is a personal portfolio website that highlights Muhammad Hassaan’s professional background, skills, projects, and contact information. It serves as a digital resume and project showcase to share with potential employers or collaborators.
+## 🛠️ Technologies & Tools
 
----
+- **Languages**: Python
+- **Frameworks & Libraries**: TensorFlow, PyTorch, Keras, Scikit-learn, Hugging Face Transformers
+- **NLP Tools**: NLTK, spaCy
+- **Deployment**: FastAPI, Streamlit, Gradio
+- **Version Control**: Git, GitHub
+- **Others**: OpenCV, VS Code
 
-## Features
+## 📂 Featured Projects
 
-* Responsive design for mobile and desktop devices
-* Sections for About, Skills, Projects, and Contact
-* Smooth scrolling and navigation
-* Clean and modern UI
-* Easy to customize and extend
+### 1. MedXpert
+An advanced medical chatbot utilizing RAG for accurate health information retrieval.
 
----
+### 2. Voice Assisted Chatbot
+An AI chatbot with voice interaction and emotion recognition features.
 
-## Technologies Used
+### 3. Global Text Translator
+A multilingual text translation application powered by AI.
 
-* HTML5
-* CSS3 (including Flexbox/Grid)
-* JavaScript (for interactivity)
-* \[Optional: Framework or Library, e.g. React, Bootstrap]
+### 4. LinguaFix
+An AI-driven tool for grammar correction and text enhancement.
 
----
+### 5. The Web Scraper
+An AI-enhanced web scraping tool for efficient data extraction.
 
-## Installation
+### 6. SnapShoe
+A computer vision application that identifies shoe types from images.
 
-To run this project locally:
+Explore all projects on my [Hugging Face profile](https://huggingface.co/Muhammad-Hassaan92).
 
-1. Clone the repository
+## 🧑‍💼 Professional Experience
 
-   ```bash
-   git clone https://github.com/Muhammad-Hassaan92/PortFolio.git
-   ```
-2. Navigate into the project directory
+**AI Engineering Intern**  
+*Islamabad, Pakistan | 2023 - Present*  
+- Developed customized chatbots with RAG capabilities.
+- Implemented emotion detection in AI assistants.
+- Worked with state-of-the-art LLMs to build specialized AI solutions.
+- Deployed AI models using FastAPI, Streamlit, and Gradio for production use.
 
-   ```bash
-   cd PortFolio
-   ```
-3. Open `index.html` in your preferred browser, or use a live server extension in your code editor.
+## 🎓 Certifications
 
----
+- **AI Engineering** – IBM
+- **Python 3 Specialization** – University of Michigan
+- **Machine Learning Specialization** – IBM
+- **ChatGPT Prompt Engineering** – DeepLearning.AI
 
-## Usage
+## 📬 Contact
 
-* Customize the content in the HTML files to update your information.
-* Add your own projects, skills, and contact details.
-* Style the site by editing the CSS files to fit your personal branding.
+I'm currently open to new opportunities. Feel free to reach out!
 
----
-
-## Contributing
-
-Contributions are welcome! If you want to improve the portfolio, please follow these steps:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature-name`)
-3. Make your changes and commit them (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature-name`)
-5. Open a Pull Request describing your changes
-
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## Contact
-
-Muhammad Hassaan
-
-* Email: \[[mhassaan.786.909@gmail.com](mailto:mhassaan.786.909@gmail.com)]
-* LinkedIn: \[linkedin.com/in/muhammad-hassaan-ai-engineer](linkedin.com/in/muhammad-hassaan-ai-engineer)
-* GitHub: [https://github.com/Muhammad-Hassaan92](https://github.com/Muhammad-Hassaan92)
+- **Email**: mhassaan.786.909@gmail.com
+- **LinkedIn**: [linkedin.com/in/muhammad-hassaan-ai-engineer](https://www.linkedin.com/in/muhammad-hassaan-ai-engineer/)
+- **GitHub**: [github.com/Muhammad-Hassaan92](https://github.com/Muhammad-Hassaan92)
