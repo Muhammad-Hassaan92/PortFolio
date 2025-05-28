@@ -979,8 +979,8 @@
 </footer>
 
 <!-- AI Assistant Chatbot -->
-<div id="chat-popup" class="fixed bottom-20 right-8 w-full max-w-sm h-[600px] hidden z-50">
-    <div class="chatbot-container bg-white dark:bg-gray-800 w-full h-full flex flex-col">
+<div id="chat-popup" class="fixed bottom-20 right-8 w-full max-w-xs h-[600px] hidden z-50 bg-white shadow-xl rounded-2xl flex flex-col">
+    <div class="chatbot-container bg-white dark:bg-gray-800 w-full h-full flex flex-col min-h-0">
         <!-- Header -->
         <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -1013,13 +1013,7 @@
                 <div class="message-bubble bot-message p-4">
                     <div class="markdown-content">
                         <h3 class="font-bold text-lg mb-2">Hello! 👋</h3>
-                        <p>I'm an AI assistant representing <strong>Muhammad Hassaan</strong>, an AI Engineer and Generative AI Specialist. I can provide information about his:</p>
-                        <ul class="list-disc mt-2 ml-4">
-                            <li>Professional background and skills</li>
-                            <li>AI projects and experience</li>
-                            <li>Certifications and education</li>
-                            <li>Contact information</li>
-                        </ul>
+                        <p>I'm an AI assistant representing <strong>Muhammad Hassaan</strong>, an AI Engineer and Generative AI Specialist.</p>
                         <p class="mt-2">How can I help you today?</p>
                     </div>
                     <div class="flex space-x-2 mt-3">
@@ -1032,13 +1026,13 @@
             <!-- Suggestions -->
             <div class="flex flex-wrap gap-2 justify-center px-4 fade-in">
                 <button onclick="sendSuggestion(this)" class="suggestion-chip bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 px-3 py-2 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-800/50">
-                    Tell me about your skills
+                    Tell me about his skills.
                 </button>
                 <button onclick="sendSuggestion(this)" class="suggestion-chip bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 px-3 py-2 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-800/50">
-                    Show me your projects
+                    Show me his projects.
                 </button>
                 <button onclick="sendSuggestion(this)" class="suggestion-chip bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 px-3 py-2 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-indigo-800/50">
-                    What's your experience?
+                    What's his experience?
                 </button>
             </div>
         </div>
@@ -1257,7 +1251,7 @@ Most Important:
 - Make sure to properly format the answers using bullets and headings etc.`;
 
       // API Configuration
-  const API_KEY = "AIzaSyDPXUpQ-q68wFXESYaR6EOIWREs9N2TqNY";
+  const API_KEY = process.env.API_KEY;
   
   // State
   let isTyping = false;
@@ -1316,39 +1310,46 @@ Most Important:
       }
   }
   
+    function scrollToBottom() {
+    chatArea.scrollTo({
+        top: chatArea.scrollHeight,
+        behavior: 'smooth'
+    });
+    }
+
   // Send message to chatbot
-  async function sendMessage() {
-      const message = chatInput.value.trim();
-      if (!message || isTyping) return;
-      
-      // Clear input
-      chatInput.value = '';
-      chatInput.style.height = 'auto';
-      
-      // Add user message to chat
-      addMessage('user', message);
-      
-      // Show typing indicator
-      showTypingIndicator();
-      
-      try {
-          // Get response from Gemini API
-          const response = await askGemini(message);
-          
-          // Remove typing indicator
-          removeTypingIndicator();
-          
-          // Add bot response to chat
-          addMessage('bot', response);
-          
-          // Scroll to bottom
-          scrollToBottom();
-      } catch (error) {
-          removeTypingIndicator();
-          addMessage('bot', `Sorry, I encountered an error: ${error.message}`);
-          scrollToBottom();
-      }
-  }
+    async function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message || isTyping) return;
+        
+        // Clear input
+        chatInput.value = '';
+        chatInput.style.height = 'auto';
+        
+        // Add user message to chat
+        addMessage('user', message);
+        
+        // Show typing indicator
+        showTypingIndicator();
+        
+        try {
+            // Get response from Gemini API
+            const response = await askGemini(message);
+            
+            // Remove typing indicator
+            removeTypingIndicator();
+            
+            // Add bot response to chat
+            addMessage('bot', response);
+            
+            // Scroll to bottom
+            scrollToBottom();
+        } catch (error) {
+            removeTypingIndicator();
+            addMessage('bot', `Sorry, I encountered an error: ${error.message}`);
+            scrollToBottom();
+        }
+    }
   
     // Add message to chat area
         function addMessage(sender, content) {
@@ -1390,11 +1391,11 @@ Most Important:
             }
             
             chatArea.appendChild(messageDiv);
-            scrollToBottom();
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
-        
-            // Format bot response with markdown
-                
+
+     
+    // Format bot response with markdown     
         function formatResponse(text) {
             // Escape basic HTML
             text = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -1476,11 +1477,6 @@ Most Important:
             if (typingIndicator) {
                 typingIndicator.remove();
             }
-        }
-        
-        // Scroll chat to bottom
-        function scrollToBottom() {
-            chatArea.scrollTop = chatArea.scrollHeight;
         }
         
         // Update notification badge
